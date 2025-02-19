@@ -1,0 +1,49 @@
+@if (shop) {
+<app-view-title title="Shop {{ shop.name }}" />
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ shop.name }}</mat-card-title>
+    <mat-card-subtitle>{{ shop.location }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ shop.phoneNumber }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ shop.email }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ shop.ownerName }}</mat-card-subtitle>
+    <mat-card-subtitle>Rating: {{ shop.rating }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/shops', shop.shopId, 'edit']">
+      Edit
+    </button>
+    <button mat-button [routerLink]="['/shops']">
+      Show all shops
+    </button>
+  </mat-card-actions>
+</mat-card>
+<br />
+
+<app-view-title title="{{ services?.services?.length }} services" />
+<mat-list>
+  @for (service of services?.services; track service.serviceId) {
+  <mat-list-item>
+    <button
+      mat-button
+      [routerLink]="['/shops', shop.shopId, 'services', service.serviceId]"
+    >
+      {{ service.name }}
+    </button>
+    <button mat-icon-button (click)="deleteService(service.serviceId)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+  <mat-divider />
+  }
+</mat-list>
+
+<button
+  mat-raised-button
+  [routerLink]="['/shops', shop.shopId, 'services', 'new']"
+>
+  New Service
+</button>
+}
+<app-error-message [message]="message" />

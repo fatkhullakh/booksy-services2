@@ -22,7 +22,11 @@ public class ShopService {
     }
 
     public List<Shop> findAll() {
-        return shopRepository.findAll();
+        List<Shop> shops = shopRepository.findAll();
+        if (shops == null) {
+            throw new RuntimeException("No shops found.");
+        }
+        return shops;
     }
 
     public Optional<Shop> findById(UUID id) {

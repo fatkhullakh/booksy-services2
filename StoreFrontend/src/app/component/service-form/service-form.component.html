@@ -1,0 +1,54 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <p>
+    <mat-form-field>
+      <label for="name">Name</label>
+      <input
+        matInput
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="service.name"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <label for="price">Price</label>
+      <input
+        matInput
+        type="number"
+        id="price"
+        name="price"
+        oninput="this.value = parseInt(this.value);"
+        [(ngModel)]="service.price"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <label for="duration">Duration</label>
+      <input
+        matInput
+        type="number"
+        id="duration"
+        name="duration"
+        oninput="this.value = parseInt(this.value);"
+        [(ngModel)]="service.duration"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <label for="category">Category</label>
+      <input
+        matInput
+        type="text"
+        id="category"
+        name="category"
+        [(ngModel)]="service.category"
+      />
+    </mat-form-field>
+  </p>
+  <button mat-raised-button type="submit">Save</button>
+  <app-error-message [message]="message" />
+</form>
