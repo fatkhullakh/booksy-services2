@@ -1,0 +1,56 @@
+<h2>Shops</h2>
+
+<!-- Loading Indicator -->
+<div *ngIf="isLoading">Loading shops...</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<!-- Shop List -->
+<ul *ngIf="!isLoading && shops.length > 0">
+  <li *ngFor="let shop of shops">
+    {{ shop.name }} - {{ shop.location }}
+    <button (click)="deleteShop(shop.shopId)">Delete</button>
+  </li>
+</ul>
+
+<button mat-raised-button color="primary" [routerLink]="['/shops/new']">
+  New Shop
+</button>
+
+<ul *ngIf="shops.length > 0">
+  <li *ngFor="let shop of shops">
+    {{ shop.name }} - {{ shop.location }}
+    <button [routerLink]="['/shops', shop.shopId, 'edit']">Edit</button>
+    <button (click)="deleteShop(shop.shopId)">Delete</button>
+  </li>
+</ul>
+
+
+
+<!-- No Shops Found -->
+<p *ngIf="!isLoading && shops.length === 0">No shops found.</p>
+
+
+
+<!--<app-view-title title="Shops" />-->
+
+<!--<mat-list>-->
+<!--  @for (shop of shops?.shops; track shop.shopId) {-->
+<!--    <mat-list-item>-->
+<!--      <button mat-button [routerLink]="['/Shops', shop.shopId]">-->
+<!--        {{ shop.name }}-->
+<!--      </button>-->
+<!--      <button mat-icon-button (click)="deleteShop(shop.shopId)">-->
+<!--        <mat-icon>delete</mat-icon>-->
+<!--      </button>-->
+<!--    </mat-list-item>-->
+<!--    <mat-divider />-->
+<!--  }-->
+<!--</mat-list>-->
+
+
+
+<!--<button mat-raised-button [routerLink]="['/shops', 'new']">-->
+<!--  New Shop-->
+<!--</button>-->

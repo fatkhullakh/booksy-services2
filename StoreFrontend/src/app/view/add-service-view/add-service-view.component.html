@@ -1,0 +1,5 @@
+@if (shop) {
+<app-view-title title="New service for shop {{ shop.name }}" />
+
+<app-service-form [message]="message" (submit)="onSubmit($event)" />
+} @else {<app-error-message [message]="message" />}

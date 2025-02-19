@@ -1,0 +1,11 @@
+@if (service && shop) {
+<app-view-title
+  title="Edit service {{ service.name }} in shop {{ shop.name }}"
+/>
+
+<app-service-form
+  [service]="service"
+  [message]="message"
+  (submit)="onSubmit()"
+/>
+} @else {<app-error-message [message]="message" />}

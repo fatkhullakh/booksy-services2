@@ -1,0 +1,37 @@
+<app-view-title title="Edit Shop"></app-view-title>
+
+<div *ngIf="message" class="error-message">{{ message }}</div>
+
+<form *ngIf="shop" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <label>Shop Name</label>
+    <input matInput [(ngModel)]="shop.name" name="name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <label>Location</label>
+    <input matInput [(ngModel)]="shop.location" name="location" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <label>Phone Number</label>
+    <input matInput [(ngModel)]="shop.phoneNumber" name="phoneNumber" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <label>Email</label>
+    <input matInput [(ngModel)]="shop.email" name="email" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <label>Owner Name</label>
+    <input matInput [(ngModel)]="shop.ownerName" name="ownerName" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <label>Rating</label>
+    <input matInput type="number" [(ngModel)]="shop.rating" name="rating" required />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
